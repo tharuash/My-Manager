@@ -23,6 +23,7 @@ public class Product {
 	private String currencyType;
 	private double unitQuantity;
 	private String siUnit;
+	
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "seller_id", referencedColumnName = "id")
