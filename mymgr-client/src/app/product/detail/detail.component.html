@@ -1,0 +1,84 @@
+<h3>Product {{product.id}}</h3>
+<div class="card">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="../../../assets/img/svg/fork.svg" height="100px" width="100px" style="margin: 10px"
+                class="img img-thumbnail" />
+        </div>
+        <div class="col-md-8">
+            <h2>{{product.name}}</h2>
+            <span class="badge badge-primary">{{product.type}}</span>
+            <br>
+            <span>{{product.unitQuantity}} {{product.siUnit}}</span> for <span>
+                {{product.unitPrice | currency}}</span>
+
+        </div>
+    </div>
+</div>
+
+<h3>Orders on Product {{product.id}}</h3>
+
+    <div class="card">
+        <div class="card-body">
+
+
+            <table class="table table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Date</th>
+                        <th>Ordered Quantity</th>
+                        <th>Total Amount</th>
+                        <th>Order Status</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of productOrders">
+                        <td>{{o.id}}</td>
+                        <td>{{o.orderStartDate}}</td>
+                        <td>{{o.requiredQuantity}}</td>
+                        <td>{{o.subTotal}}</td>
+                        <td><span class="badge badge-primary">{{o.orderStatus}}</span></td>
+
+
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+            <!--nav>
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item" *ngFor="let p of pages; let i=index">
+                        <a class="page-link" href="#" (click)="setPage(i, $event)">{{i+1}}</a>
+                    </li>
+                </ul>
+            </nav-->
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+          Line Chart
+          <div class="card-header-actions">
+            <!--a href="http://www.chartjs.org">
+              <small class="text-muted">docs</small>
+            </a-->
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas baseChart class="chart"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColours"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
