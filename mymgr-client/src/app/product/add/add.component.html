@@ -1,0 +1,115 @@
+<div class="card">
+    <div class="card-header">
+        <strong>Product</strong>
+        <small>Form</small>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Alloy Wheels" [(ngModel)]="product.name"
+                    name="productName" #productName="ngModel">
+            </div>
+
+            <!--div class="form-group row">
+                <label class="col-md-2 col-form-label" for="file-input">Product Image</label>
+                <div class="col-md-9">
+                    <input type="file" id="file-input" name="file-input" (change) = "onEvent($event)">
+                </div>
+            </div-->
+
+            <div class="form-group">
+                <label for="type">Product Type</label>
+                <select class="form-control" id="type" [(ngModel)]="product.type" name="productType"
+                    #productType="ngModel">
+                    <option value="Food">Food</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Decoration">Decoration</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="form-group col-sm-8">
+                            <label for="unitQuantity">Unit Quantity</label>
+                            <input type="number" class="form-control" id="unitQuantity"
+                                placeholder="Enter quantity per 1 unit of sell" [(ngModel)]="product.unitQuantity"
+                                name="productUnitQuantity" #productUnitQuantity="ngModel">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="siUnit">SI Unit</label>
+                            <select class="form-control" id="siUnit" [(ngModel)]="product.siUnit" name="productSiUnit"
+                                #productSiUnit="ngModel">
+                                <option value="kg">Kg</option>
+                                <option value="m">m</option>
+                                <option value="unit">unit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="form-group col-sm-8">
+                            <label for="unitPrice">Unit Price</label>
+                            <input type="number" class="form-control" id="unitPrice"
+                                placeholder="Enter product unit price" [(ngModel)]="product.unitPrice"
+                                name="productUnitPrice" #productUnitPrice="ngModel">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="currencyType">Currency Type</label>
+                            <select class="form-control" id="currencyType" [(ngModel)]="product.currencyType"
+                                name="productCurrencyType" #productCurrencyType="ngModel">
+                                <option value="USD">USD</option>
+                                <option value="Rs">Rs</option>
+                                <option value="EURO">Euro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="stockType">Stock Type</label>
+                <select class="form-control" id="stockType" [(ngModel)]="stock.stockType" name="productStockType"
+                    #productStockType="ngModel">
+                    <option value="ANYTIME_AVAILABLE">ANYTIME AVAILABLE</option>
+                    <option value="INSTANT_PRODUCTION">INSTANT_PRODUCTION</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="maxQuantity">Maximum quantity(for a one time stock)</label>
+                    <input type="number" class="form-control" id="maxQuantity"
+                        placeholder="Quantity units will be considerd as previous given SI units."
+                        [(ngModel)]="stock.maximumQuantity" name="productStockMaximumQuantity"
+                        #productStockMaximumQuantity="ngModel">
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <div class="row">
+                        <div class="form-group col-sm-10">
+                            <label for="ava">Is available to sell?</label>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label class="switch switch-3d switch-primary">
+                                <input type="checkbox" class="switch-input" id="ava"
+                                    [(ngModel)]="stock.isAvailableOnSell" name="productStockIsAvailableOnSell"
+                                    #productStockIsAvailableOnSell="ngModel" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </form>
+        <!--/.row-->
+
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary" (click)="register()"><i class="fa fa-dot-circle-o"></i>
+            Register</button>
+        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+</div>
