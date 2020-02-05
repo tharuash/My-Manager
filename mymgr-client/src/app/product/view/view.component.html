@@ -1,0 +1,16 @@
+<h3>My Products</h3>
+<div  class="card" *ngFor="let p of products" (click)="detail(p.id)">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="../../../assets/img/svg/fork.svg" height="100px" width="100px" style="margin: 10px" class="img img-thumbnail" />
+        </div>
+        <div class="col-md-8">
+            <h2>{{p.name}}</h2>
+            <span class="badge badge-primary">{{p.type}}</span>
+            <br>
+            <span>{{p.unitQuantity}} {{p.siUnit}}</span> for <span>
+                {{p.unitPrice | currency}}</span>
+
+        </div>
+    </div>
+</div>
